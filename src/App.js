@@ -1,14 +1,11 @@
 import Carousel from './components/Carousel';
-import firstImg from './images/first.jpg';
-import secondImg from './images/second.jpg';
-import thirdImg from './images/third.jpg';
 
 function App() {
     const imagesList =
         [
-            firstImg,
-            secondImg,
-            thirdImg
+            '/images/first.jpg',
+            '/images/second.jpg',
+            '/images/third.jpg'
         ];
 
     return (

@@ -38,8 +38,6 @@ class Carousel extends React.Component {
                     <div className='carousel-item'>
                         <img alt="" className="d-block w-100" src={images[++indexImg]}/>
                     </div>
-                    )}
-
                 </div>
                 <button className="carousel-control-prev"
                         data-bs-target="#carousel"

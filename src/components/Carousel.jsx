@@ -12,6 +12,7 @@ class Carousel extends React.Component {
 
     switchImg = (arrowSwitch) => () => {
         let {indexImg, images} = this.state;
+
         if (arrowSwitch === `next`) {
             this.setState({indexImg: indexImg === images.length - 1 ? 0 : ++indexImg})
         } else {
@@ -22,24 +23,29 @@ class Carousel extends React.Component {
     switchNextImg = this.switchImg('next');
     switchPrevImg = this.switchImg('prev');
 
-    render() {
+    renderList() {
         const {indexImg, images} = this.state
+        {
+            return images.map((item, index) => {
+                    const activeImg = cn('carousel-item',
+                        {active: indexImg === index}
+                    );
 
+                    return (
+                        <div className={activeImg} key={index}>
+                            <img className="d-block w-100 " src={item} alt="image of slider"></img>
+                        </div>
+                    );
+                }
+            )
+        }
+    }
+
+    render() {
         return (
             <div id="carousel" className="carousel slide" data-bs-ride="carousel">
                 <div className="carousel-inner">
-
-                    {images.map((item, index) => {
-                        const activeImg = cn('carousel-item',
-                            {active: indexImg === index}
-                        );
-
-                        return (
-                            <div className={activeImg} key={index}>
-                                <img className="d-block w-100 " src={item} alt=""></img>
-                            </div>
-                        );
-                    })}
+                    {this.renderList()}
                 </div>
 
                 <button

@@ -28,7 +28,7 @@ class Carousel extends React.Component {
         {
             return images.map((item, index) => {
                     const activeImg = cn('carousel-item',
-                        {active: indexImg === index}
+                        {'active': indexImg === index}
                     );
 
                     return (

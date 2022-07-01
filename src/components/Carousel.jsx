@@ -18,8 +18,8 @@ class Carousel extends React.Component {
             this.setState({indexImg: indexImg === 0 ? images.length - 1 : --indexImg})
     };
 
-    switchNextImg = this.switchImg('next');
-    switchPrevImg = this.switchImg('prev');
+    switchNextImg = this.switchImg(`next`);
+    switchPrevImg = this.switchImg(`prev`);
 
     renderList() {
         const {indexImg, images} = this.state

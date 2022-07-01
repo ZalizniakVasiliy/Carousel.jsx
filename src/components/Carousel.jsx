@@ -13,11 +13,9 @@ class Carousel extends React.Component {
     switchImg = (arrowSwitch) => () => {
         let {indexImg, images} = this.state;
 
-        if (arrowSwitch === `next`) {
-            this.setState({indexImg: indexImg === images.length - 1 ? 0 : ++indexImg})
-        } else {
+        arrowSwitch === `next` ?
+            this.setState({indexImg: indexImg === images.length - 1 ? 0 : ++indexImg}) :
             this.setState({indexImg: indexImg === 0 ? images.length - 1 : --indexImg})
-        }
     };
 
     switchNextImg = this.switchImg('next');
@@ -25,20 +23,19 @@ class Carousel extends React.Component {
 
     renderList() {
         const {indexImg, images} = this.state
-        {
-            return images.map((item, index) => {
-                    const activeImg = cn('carousel-item',
-                        {'active': indexImg === index}
-                    );
 
-                    return (
-                        <div className={activeImg} key={index}>
-                            <img className="d-block w-100 " src={item} alt="image of slider"></img>
-                        </div>
-                    );
-                }
-            )
-        }
+        return images.map((item, index) => {
+                const activeImg = cn('carousel-item',
+                    {'active': indexImg === index}
+                );
+
+                return (
+                    <div className={activeImg} key={index}>
+                        <img className="d-block w-100 " src={item} alt="image of slider"></img>
+                    </div>
+                );
+            }
+        )
     }
 
     render() {
